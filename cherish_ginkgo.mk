@@ -23,19 +23,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit from ginkgo device
 $(call inherit-product, device/xiaomi/ginkgo/device.mk)
 
-# Inherit some common ArrowOS stuff
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
 TARGET_INCLUDE_PIXEL_CHARGER := true
-$(call inherit-product, vendor/aosp/config/common.mk)
+TARGET_SUPPORTS_QUICK_TAP := true
 
 # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 RELAX_USES_LIBRARY_CHECK := true
-
-ARCANA_OFFICIAL := true
-ARCANA_DEVICE := ginkgo
-ARCANA_MAINTAINER := _.rasend
-WITH_GAPPS := true
 
 # Device identifier
 PRODUCT_NAME := aosp_ginkgo
@@ -44,4 +42,8 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 8
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-DEVICE_MAINTAINER := Adithya (ghostrider_reborn)
+
+# Cherish OS Stuffs
+WITH_GMS := true
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=Artiya'il Yazid Baraka Putra
