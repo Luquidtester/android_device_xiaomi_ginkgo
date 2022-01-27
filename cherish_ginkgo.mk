@@ -36,7 +36,7 @@ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 RELAX_USES_LIBRARY_CHECK := true
 
 # Device identifier
-PRODUCT_NAME := aosp_ginkgo
+PRODUCT_NAME := cherish_ginkgo
 PRODUCT_DEVICE := ginkgo
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 8
